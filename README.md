@@ -1,6 +1,9 @@
 # RuleEngine
 A simple rule engine implementation for an incoming stream of data.
 It runs on python 3.5 and uses django rest framework for exposing APIs and results.
+Here, we will use a raw_signal data set that has a corpus of signals, the signal types and their values.
+
+We will read each line of the data and validate them against a set of preset rules.
 
 ## Getting Started
 
