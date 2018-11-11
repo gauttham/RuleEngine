@@ -3,7 +3,7 @@
 ### Model Design
 
 
-###### Model - SignalData:
+###### Model - **SignalData**:
 
 
 - signal: Signal name (ALT1 .. ALT N)
@@ -12,7 +12,7 @@
 - isViolated: Boolean
 
 
-###### Model - Rule
+###### Model - **Rule**
 
 The rule model stores the rules persistently in the database. The following are the attributes of the Rule model.
 
