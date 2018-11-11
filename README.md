@@ -31,9 +31,130 @@ The installation of a django app is simple. Once the dependencies installation i
 
 This will start the app on you local instance. Please be very sure that the dependencies in the file requirements.txt are all installed successfully.
 Please be rest assured that the set up is completed once you see a response something like this:
-![Alt text](images/runserver.jpg?raw=true)
+![image](src/images/runserver.jpg?raw=true)
+The above response means that the app is running on the port 8000 on your localhost.
+
+You can visit the admin console by going to:
+
+````angular2html
+http://localhost:8000/admin
+username: appuser
+password: appuser
+````
+This will also give you direct access to the tables and add or create rules of your own.
+
 
 ### Testing the App
+
+####Loading Bulk raw_signal.json 
+
+API:
+`http://localhost:8000/v1/load/`
+
+A **POST** Call to the above endpoint would load all the records in the raw_signal.json file and emit the rows that violated along with the rules that were violated for each row.
+Sample response below:
+![image](src/images/bulksignalloader.jpg?raw=true)
+
+
+
+
+#### Creating a Rule
+
+Rule creation has been built in a way that would make it easy to convert it into a Domain Specific Language (DSL) in the future.
+The Rules are as verbose as possible.
+For Eg one of the rules is as below:
+
+`ATL1 Datetime Should Be > 2018-11-11 00:00:00`
+
+The format in which new rules are accepted right now is shown below:
+ 
+`<signal value> <value Type> <should/should not be> <greater than/lass than/equal to> <a value>`
+
+The reason this design was chosen was with an intention of making rule creation as verbose as possible.
+
+Creating a rule with an API:
+
+EndPoint:
+
+`http://localhost:8000/v1/rule/`
+
+A GET Call to this API lists all the existing rules:
+
+Eg:
+
+````
+[
+    {
+        "id": 3,
+        "appliesOn": "ATL2",
+        "valueType": "Datetime",
+        "ruleType": "Should Not Be",
+        "operator": "<",
+        "value": "2018-11-11 00:00:00"
+    },
+    {
+        "id": 4,
+        "appliesOn": "ATL1",
+        "valueType": "Datetime",
+        "ruleType": "Should Be",
+        "operator": ">",
+        "value": "2018-11-11 00:00:00"
+    },
+    {
+        "id": 5,
+        "appliesOn": "ATL1",
+        "valueType": "Integer",
+        "ruleType": "Should Be",
+        "operator": ">",
+        "value": "56.679"
+    }
+]
+````
+However, following is a sample POST call that would create a new rule:
+
+POST:
+
+`data = {"appliesOn": "ATL2", "valueType": "Datetime", "ruleType": "Should Not Be", "operator": "<", "value": "2018-11-11 00:00:00"}`
+
+
+#### Testing on Individual Signal Data 
+
+A POST call with the signal data to the endpoint, returns the list of rules that a particular row violates.
+
+Eg:
+````angular2html
+EndPoint: http://localhost:8000/v1/signal/
+
+data: {
+        "signal": "ATL1",
+        "value": "3.3",
+        "value_type": "Integer"
+    }
+
+Response:
+{
+    "violatedRules": [
+        "ATL1 Integer Should Be > 56.679"
+    ],
+    "isViolated": true,
+    "signal": "ATL1",
+    "value": "3.3",
+    "value_type": "Integer"
+}
+
+````
+
+
+### Approach, Thoughts and Further Improvements
+
+Please follow this page for further updates as information in thsi page is limited to setup, configuration and testing.
+[Design Approach, thoughts and further improvements](src/APPROACH.md)
+
+
+
+
+
+
 
 
 
