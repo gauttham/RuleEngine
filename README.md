@@ -11,7 +11,7 @@ Clone the repo using the below URL.
 
 The clone command would also have pulled in a local copy of sqlite DB so that you don't have to be concerned about setting up the migration scripts and validating them.
 
-###Prerequisites
+### Prerequisites
 
 Since this is a python app, you will need to run a python virtual environment if you don't want to mess around with the default set up of your app.
 
@@ -23,7 +23,7 @@ Once the environment is activated (please be very sure of this step), please ins
 `pip install -r requirements.txt
 `
 
-###Installation
+### Installation
 
 The installation of a django app is simple. Once the dependencies installation is completed, please navigate to the directory where the file `manage.py` is loated and run the following command.
 
@@ -46,7 +46,7 @@ This will also give you direct access to the tables and add or create rules of y
 
 ### Testing the App
 
-####Loading Bulk raw_signal.json 
+#### Loading Bulk raw_signal.json 
 
 API:
 `http://localhost:8000/v1/load/`
