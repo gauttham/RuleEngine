@@ -148,7 +148,7 @@ Response:
 ### Approach, Thoughts and Further Improvements
 
 Please follow this page for further updates as information in thsi page is limited to setup, configuration and testing.
-[Design Approach, thoughts and further improvements](src/APPROACH.md)
+[Design Approach, thoughts and further improvements](APPROACH.md)
 
 
 
