@@ -1,9 +1,9 @@
 ## Design Doc for the Rule Engine
 
-###Model Design
+### Model Design
 
 
-####Model - SignalData:
+###### Model - SignalData:
 
 
 - signal: Signal name (ALT1 .. ALT N)
@@ -12,7 +12,7 @@
 - isViolated: Boolean
 
 
-####Model - Rule
+###### Model - Rule
 
 The rule model stores the rules persistently in the database. The following are the attributes of the Rule model.
 
@@ -23,7 +23,7 @@ The rule model stores the rules persistently in the database. The following are 
 - value: Char Field (The value against which a rule has to be checked)
 
 
-####Trade Offs:
+#### Trade Offs:
 
 Since we are using the database driven rules engine, we will at some point of time reach a place where the any new updates to the engine or a rule will regress to the rest of the app and we would never know when what would break with what change.
 
