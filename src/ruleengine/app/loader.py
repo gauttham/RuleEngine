@@ -1,6 +1,6 @@
 from . import models
 from .raw_signal import data
-
+from .parser import Parser as signalParser
 
 def loadrow(*args, **kwargs):
 
@@ -23,16 +23,21 @@ def loadrow(*args, **kwargs):
 
 def loadall():
 
+    failedList = []
     if data:
         for rowItem in data:
             flag, message = loadrow(**rowItem)
             if flag:
                 # TODO Invoke the parser module here
-                pass
+                pr = signalParser(**rowItem)
+                res = pr.validaterules()
+                if res:
+                    failedList.append({"failedRow": rowItem.get("signal") + " " + rowItem.get("value_type") + " " + rowItem.get("value"),
+                                       "failedRules": res})
             else:
                 pass
 
-        return True
+        return failedList
     else:
         return {"status": False, "message": "No Data"}
 
