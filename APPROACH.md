@@ -1,13 +1,16 @@
 ## Design Doc for the Rule Engine
 
-####Model Design
+###Model Design
+
 
 ####Model - SignalData:
+
 
 - signal: Signal name (ALT1 .. ALT N)
 - value: Charfield ( A literal value)
 - valueType: Charfield (Integer, Datetime, String)
 - isViolated: Boolean
+
 
 ####Model - Rule
 
