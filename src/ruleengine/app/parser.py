@@ -28,6 +28,5 @@ class Parser(object):
             except Exception as e:
                 return {"status": False, "message": "Some Error Occurred " + str(e)}
 
-    def
 
 
