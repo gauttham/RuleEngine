@@ -2,14 +2,14 @@
 
 ####Model Design
 
-######Model - SignalData:
+####Model - SignalData:
 
 - signal: Signal name (ALT1 .. ALT N)
 - value: Charfield ( A literal value)
 - valueType: Charfield (Integer, Datetime, String)
 - isViolated: Boolean
 
-######Model - Rule
+####Model - Rule
 
 The rule model stores the rules persistently in the database. The following are the attributes of the Rule model.
 
@@ -18,6 +18,7 @@ The rule model stores the rules persistently in the database. The following are 
 - ruleType: Char Field (Should something happen or should something not happen)
 - operator: Char Field (The current supported operators are '<', '>', '=')
 - value: Char Field (The value against which a rule has to be checked)
+
 
 ####Trade Offs:
 
