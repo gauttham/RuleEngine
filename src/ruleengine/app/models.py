@@ -13,13 +13,13 @@ valueTypeChoices = [
 
 ruleTypeChoices = [
     ('Should Be', 'Should Be'),
-    ('Should Not', 'Should Not'),
+    ('Should Not Be', 'Should Not Be'),
 ]
 
 ruleOperatorChoices = [
-    ('equal to', 'equal to'),
-    ('less than', 'less than'),
-    ('greater than', 'greater than'),
+    ('=', 'equal to'),
+    ('<', 'less than'),
+    ('>', 'greater than'),
 ]
 
 
@@ -42,7 +42,7 @@ class Rule(models.Model):
     ruleType = models.CharField(max_length=50, choices=ruleTypeChoices, default='Should Be')
     operator = models.CharField(max_length=50, choices=ruleOperatorChoices, default=None)
     value = models.CharField(max_length=100, default=None,
-                             help_text="If using date, please use the following format 'DD-Mon-YYYY HH24:MI:SS'")
+                             help_text="If using date, please use the following format 'YYYY-MM-DD HH24:MI:SS'")
 
     def __str__(self):
         return "%s %s %s %s %s" % (self.appliesOn, self.valueType, self.ruleType, self.operator, self.value)

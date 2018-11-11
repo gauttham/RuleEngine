@@ -27,6 +27,7 @@ def loadall():
         for rowItem in data:
             flag, message = loadrow(**rowItem)
             if flag:
+                # TODO Invoke the parser module here
                 pass
             else:
                 pass
