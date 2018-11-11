@@ -49,5 +49,8 @@ The next would be the caching implementation by introducing a redis layer in bet
 Provide flexibility to create new rules like verbose commands or DSLs.
 For eg: `ALT1 Integer should be < 100`
 Parse the text and create rule by understanding the text. This would be a major breakthrogh in building real time rules engine using natural language.
+
+User centric rules, Where each person will have his own set of rules that he would like to run on the data corpus.
+
  
  
